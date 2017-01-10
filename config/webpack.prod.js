@@ -28,7 +28,7 @@ module.exports = webpackMerge(commonConfig, {
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: [
-            { loader: 'css-loader' },
+            { loader: 'css-loader?minimize' },
             { loader: 'postcss-loader' },
             { loader: 'sass-loader' }
           ]
