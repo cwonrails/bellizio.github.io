@@ -17,19 +17,20 @@ module.exports = webpackMerge(commonConfig, {
     loaders: [
       {
         test: /\.ts$/,
+        exclude: [/\.(spec|e2e)\.ts$/],
         loaders: [
           '@angularclass/hmr-loader',
           'awesome-typescript-loader',
           'angular2-template-loader'
-        ],
-        exclude: [/\.(spec|e2e)\.ts$/]
+        ]
       },
       {
         test: /\.scss$/,
         include: helpers.root('src', 'assets', 'css'),
         loaders: [
           'style-loader',
-          'css-loader?sourceMap',
+          'css-loader?sourceMap&importLoaders=1',
+          'postcss-loader?sourceMap=inline',
           'sass-loader?sourceMap'
         ]
       }

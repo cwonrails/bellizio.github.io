@@ -19,15 +19,19 @@ module.exports = webpackMerge(commonConfig, {
     loaders: [
       {
         test: /\.ts$/,
-        loader: '@ngtools/webpack',
-        exclude: [/\.(spec|e2e)\.ts$/]
+        exclude: [/\.(spec|e2e)\.ts$/],
+        loader: '@ngtools/webpack'
       },
       {
         test: /\.scss$/,
         include: helpers.root('src', 'assets', 'css'),
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
-          loader: 'css-loader!sass-loader'
+          loader: [
+            { loader: 'css-loader' },
+            { loader: 'postcss-loader' },
+            { loader: 'sass-loader' }
+          ]
         })
       }
     ]
