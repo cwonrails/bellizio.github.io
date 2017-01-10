@@ -6,14 +6,13 @@ fse.copy('./CNAME', './dist/CNAME', (error) => {
   if (error) {
     console.log(error);
   } else {
-    publishApp();
+    deployApp();
   }
 });
 
-function publishApp() {
+function deployApp() {
   ghpages.publish(path.join(__dirname, 'dist'), {
-    branch: 'master',
-    message: 'test deploy'
+    branch: 'master'
   }, () => {
     console.log('deploy complete');
   });
