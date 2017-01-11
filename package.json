@@ -9,8 +9,8 @@
     "url": "https://github.com/bellizio/bellizio.github.io.git"
   },
   "scripts": {
-    "deploy": "npm run build:prod && node deploy.js",
-    "build:prod": "npm test && rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "deploy": "npm test && npm run build:prod && node deploy.js",
+    "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "serve:prod": "npm run build:prod && http-server dist",
     "start": "webpack-dev-server --inline --hot --progress --open --port 8080",
     "test": "karma start"
