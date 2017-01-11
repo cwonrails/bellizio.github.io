@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -34,5 +35,13 @@ module.exports = {
 
   performance: {
     hints: false
-  }
+  },
+
+  plugins: [
+    // see https://github.com/angular/angular/issues/11580
+    new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      helpers.root('src')
+    )
+  ]
 };
