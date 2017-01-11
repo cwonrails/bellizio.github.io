@@ -25,6 +25,10 @@ module.exports = {
     ]
   },
 
+  performance: {
+    hints: false
+  },
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']

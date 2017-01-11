@@ -30,5 +30,9 @@ module.exports = {
         loader: 'null-loader'
       }
     ]
+  },
+
+  performance: {
+    hints: false
   }
-}
+};
