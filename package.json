@@ -12,7 +12,7 @@
     "deploy": "npm test && npm run build:prod && node deploy.js",
     "build:prod": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "serve:prod": "npm run build:prod && http-server dist",
-    "start": "webpack-dev-server --inline --hot --progress --open --port 8080",
+    "start": "webpack-dev-server --inline --hot --progress --open",
     "test": "karma start"
   },
   "dependencies": {
