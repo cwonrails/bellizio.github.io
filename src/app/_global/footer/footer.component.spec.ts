@@ -22,7 +22,7 @@ describe('Footer Component', () => {
     el = de.nativeElement;
   });
 
-  it ('should exist', () => {
+  it ('should contain a <footer> element', () => {
     expect(el).toBeDefined();
   });
 });

@@ -3,7 +3,7 @@ import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 import { HeaderComponent } from './header.component';
 
-describe('Footer Component', () => {
+describe('Header Component', () => {
   let comp:    HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let de:      DebugElement;
@@ -22,7 +22,7 @@ describe('Footer Component', () => {
     el = de.nativeElement;
   });
 
-  it ('should exist', () => {
+  it ('should contain a <header> element', () => {
     expect(el).toBeDefined();
   });
 });
