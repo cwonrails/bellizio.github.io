@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var StyleLintPlugin = require('stylelint-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -42,6 +43,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       // injects bundle into index.html, copies it to build folder
       template: './src/index.html'
+    }),
+    new StyleLintPlugin({
+      configFile: '.stylelintrc',
+      context: helpers.root('src', 'assets', 'css'),
+      files: '**/*.scss',
+      quiet: true
     })
   ]
 };
