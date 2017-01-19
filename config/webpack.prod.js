@@ -16,19 +16,23 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
         exclude: [/\.(spec|e2e)\.ts$/],
-        loader: '@ngtools/webpack'
+        use: '@ngtools/webpack'
       },
       {
         test: /\.scss$/,
         include: helpers.root('src', 'assets', 'css'),
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: [
-            { loader: 'css-loader?minimize' },
+            { loader: 'css-loader',
+              query: {
+                minimize: true
+              }
+            },
             { loader: 'postcss-loader' },
             { loader: 'sass-loader' }
           ]
@@ -38,7 +42,7 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
       mangle: {
         keep_fnames: true
