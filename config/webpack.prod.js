@@ -25,14 +25,10 @@ module.exports = webpackMerge(commonConfig, {
       {
         test: /\.scss$/,
         include: helpers.root('src', 'assets', 'css'),
-        use: ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: [
-            { loader: 'css-loader',
-              query: {
-                minimize: true
-              }
-            },
+            { loader: 'css-loader?minimize'},
             { loader: 'postcss-loader' },
             { loader: 'sass-loader' }
           ]
