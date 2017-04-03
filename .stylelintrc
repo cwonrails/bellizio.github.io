@@ -1,7 +1,7 @@
 {
   "rules": {
-    "block-no-empty": true,
-    "block-no-single-line": true,
+    "block-opening-brace-newline-after": ["always"],
+    "block-closing-brace-newline-before": ["always"],
     "color-hex-case": "lower",
     "color-no-invalid-hex": true,
     "declaration-colon-space-after": "always",
@@ -9,7 +9,7 @@
     "indentation": [2, {
       "except": ["value"]
     }],
-    "rule-nested-empty-line-before": ["always", {
+    "rule-empty-line-before": ["always", {
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     }],
